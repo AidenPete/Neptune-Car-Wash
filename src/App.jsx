@@ -1,35 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from 'react';
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import Services from './components/Services/Services';
+import Booking from './components/Booking/Booking';
+import ARPreview from './components/ARPreview/ARPreview';
+import Testimonials from './components/Testimonials/Testimonials';
+import Footer from './components/Footer/Footer';
+import LoadingScreen from './components/LoadingScreen/LoadingScreen';
+import { usePWAInstall } from './hooks/usePWAInstall';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isLoading, setIsLoading] = useState(true);
+  const { isInstallable, install } = usePWAInstall();
+
+  // Handle loading screen
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // 3 second loading screen
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Handle scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+        <>
+          <Header />
+          <main>
+            <Hero />
+            <Services />
+            <Booking />
+            <ARPreview />
+            <Testimonials />
+          </main>
+          <Footer />
+
+          {/* PWA Install Prompt */}
+          {isInstallable && (
+            <button 
+              className="install-btn"
+              onClick={install}
+              aria-label="Install app"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+              </svg>
+              Install App
+            </button>
+          )}
+        </>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,84 @@
+.services {
+    background-color: var(--white);
+    color: var(--deep-blue);
+    text-align: center;
+    position: relative;
+    padding: 6rem 2rem;
+  }
+  
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .service-card {
+    perspective: 1000px;
+    background-color: var(--pearl);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .service-card h3 {
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .service-card .price {
+    font-size: 1.8rem;
+    color: var(--coral);
+    font-weight: bold;
+    margin: 1rem 0;
+  }
+  
+  .service-card ul {
+    list-style: none;
+    text-align: left;
+    margin: 1.5rem 0;
+  }
+  
+  .service-card ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .service-card ul li::before {
+    content: '•';
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+  }
+  
+  .book-button {
+    display: inline-block;
+    background-color: var(--teal);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transition);
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-button:hover {
+    background-color: var(--deep-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
