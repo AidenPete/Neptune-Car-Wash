@@ -7,6 +7,13 @@
   --pearl: rgba(255, 255, 255, 0.9);
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+:root {
+  --deep-blue: #001f3f;
+  --teal: #0a9396;
+  --white: #ffffff;
+  --gold: #FFD700;
+  --coral: #EE9B00;
+}
 
 /* Base styles */
 body {
