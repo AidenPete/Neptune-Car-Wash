@@ -9,8 +9,8 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      text: "Neptune's Fury package transformed my minivan from a mom-mobile to a sea god's chariot!",
-      author: "James T."
+      text: "Neptune's Fury package transformed my toyota Passo from a mom-mobile to a sea god's chariot!",
+      author: "Angela K"
     },
     {
       id: 3,
