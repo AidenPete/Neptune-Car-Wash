@@ -10,6 +10,7 @@ import LoadingScreen from './components/LoadingScreen/LoadingScreen';
 import { usePWAInstall } from './hooks/usePWAInstall';
 import './App.css';
 
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const { isInstallable, install } = usePWAInstall();

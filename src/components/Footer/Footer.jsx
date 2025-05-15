@@ -31,16 +31,16 @@ const Footer = () => {
           <div className="footer-column">
             <h3>Contact Us</h3>
             <ul>
-              <li><FaMapMarkerAlt /> 123 Ocean Avenue</li>
-              <li><FaCity /> Poseidon's Bay, PB 12345</li>
-              <li><FaPhone /> (555) 123-4567</li>
+              <li><FaMapMarkerAlt /> 123 Garden estate</li>
+              <li><FaCity /> Poseidon's Trident house, PB 12345</li>
+              <li><FaPhone /> 0712564246</li>
               <li><FaEnvelope /> divine@neptunewash.com</li>
             </ul>
           </div>
         </div>
         
         <div className="copyright">
-          <p>&copy; 2023 Neptune's Divine Car Wash. All rights reserved.</p>
+          <p>&copy; 2025 Neptune's Divine Car Wash. All rights reserved.</p>
         </div>
       </div>
     </footer>

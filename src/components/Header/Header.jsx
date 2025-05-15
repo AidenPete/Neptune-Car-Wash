@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
 import { FaDownload } from 'react-icons/fa';
+import { FaUser, FaSignOutAlt } from 'react-icons/fa';
+import { useAuth } from '../../context/AuthContext';
+import AuthModal from '../Auth/AuthModal';
 import logo from '../../assets/images/logo.png'; // Consistent import
 import './Header.css';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const { currentUser, logOut } = useAuth();
+  // const cart = useCart(); // Removed unused variable
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -42,9 +48,32 @@ const Header = () => {
         </ul>
       </nav>
       
-      <button id="install-btn" className="install-btn" aria-label="Install app">
-        <FaDownload /> Install App
-      </button>
+      <div className="header-right">
+        <button id="install-btn" className="install-btn" aria-label="Install app">
+          <FaDownload /> Install App
+        </button>
+        <div className="auth-section">
+          {currentUser ? (
+            <div className="user-info">
+              <span className="user-email">{currentUser.email}</span>
+              <button onClick={logOut} className="logout-btn">
+                <FaSignOutAlt /> Logout
+              </button>
+            </div>
+          ) : (
+            <button 
+              className="auth-btn"
+              onClick={() => setShowAuthModal(true)}
+            >
+              <FaUser /> Login
+            </button>
+          )}
+        </div>
+      </div>
+
+      {showAuthModal && (
+        <AuthModal onClose={() => setShowAuthModal(false)} />
+      )}
     </header>
   );
 };
