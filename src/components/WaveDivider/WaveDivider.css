@@ -1,31 +1,31 @@
 .wave-divider {
-    position: relative;
-    height: 150px;
-    width: 100%;
-    overflow: hidden;
-    background: transparent;
+  position: relative;
+  height: 150px;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  animation: wave 8s linear infinite;
+}
+
+.wave-divider.flipped svg {
+  transform: rotate(180deg);
+}
+
+@keyframes wave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .wave-divider {
+    height: 80px;
   }
-  
-  .wave-divider svg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    animation: wave 8s linear infinite;
-  }
-  
-  .wave-divider.flipped svg {
-    transform: rotate(180deg);
-  }
-  
-  @keyframes wave {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  
-  @media (max-width: 768px) {
-    .wave-divider {
-      height: 80px;
-    }
-  }
+}
